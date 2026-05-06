@@ -1,0 +1,324 @@
+/* ============================================================
+   RAIN THEME — PURPLE ELITE MULTI-PAGE
+   Animaciones + tipografía + pestañas únicas
+   ============================================================ */
+
+/* ── Fuentes ─────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Outfit:wght@400;500;600&display=swap');
+
+/* ── Variables ───────────────────────────────────────────── */
+:root {
+    --rain-deep: #0b0814;
+    --rain-dark: #140f26;
+    --rain-mid: #1d1538;
+    --rain-slate: #2d2160;
+    --rain-accent: #8b5cf6;
+    --rain-accent-soft: rgba(139,92,246,0.15);
+    --rain-glow: rgba(139,92,246,0.6);
+    --text-main: #f1edff;
+    --text-muted: #9b8fcf;
+    --radius: 14px;
+    --transition: 0.3s cubic-bezier(.2,.8,.2,1);
+}
+
+/* ── Base ───────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sora', sans-serif;
+    margin: 0;
+    background: linear-gradient(180deg, #0b0814, #140f26);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+    /* ── Lluvia ─────────────────────────────────────────────── */
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: repeating-linear-gradient( 120deg, transparent 0px, transparent 40px, rgba(167,139,250,0.05) 41px );
+        animation: rainMove 5s linear infinite;
+        z-index: 0;
+    }
+
+@keyframes rainMove {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -100px 250px;
+    }
+}
+
+/* ── Relámpago ─────────────────────────────────────────── */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: #c4b5fd;
+    opacity: 0;
+    animation: lightning 12s infinite;
+}
+
+@keyframes lightning {
+    0%,96%,100% {
+        opacity: 0;
+    }
+
+    97% {
+        opacity: 0.04;
+    }
+
+    98% {
+        opacity: 0;
+    }
+
+    99% {
+        opacity: 0.02;
+    }
+}
+
+/* ── Tipografía ─────────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.03em;
+}
+
+h1 {
+    font-size: 2.2rem;
+    background: linear-gradient(90deg,#fff,#c4b5fd);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+p {
+    color: var(--text-muted);
+}
+
+/* ── Secciones ─────────────────────────────────────────── */
+.section {
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius);
+    background: rgba(20,15,38,0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+}
+
+    .section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 2px;
+        width: 100%;
+        background: linear-gradient(to right, transparent, var(--rain-accent), transparent);
+    }
+
+/* ── Navbar ───────────────────────────────────────────── */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11,8,20,0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: var(--transition);
+}
+
+    .navbar.scrolled {
+        background: rgba(11,8,20,0.95);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+.navbar-brand {
+    font-family: 'Outfit', sans-serif;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    position: relative;
+}
+
+    .nav-link:hover {
+        color: var(--rain-accent);
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        width: 0%;
+        height: 2px;
+        background: var(--rain-accent);
+        transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+/* ── Cards ───────────────────────────────────────────── */
+.card {
+    background: rgba(20,15,38,0.6);
+    backdrop-filter: blur(14px);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+    .card::before {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        background: radial-gradient(circle at top, var(--rain-accent-soft), transparent 70%);
+        opacity: 0;
+        transition: var(--transition);
+    }
+
+    .card:hover::before {
+        opacity: 1;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 25px var(--rain-accent-soft);
+    }
+
+/* ── Botones ─────────────────────────────────────────── */
+.btn {
+    border-radius: var(--radius);
+    padding: 0.6rem 1.2rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+        transform: translateX(-100%);
+        transition: 0.6s;
+    }
+
+    .btn:hover::before {
+        transform: translateX(100%);
+    }
+
+.btn-primary {
+    background: linear-gradient(135deg,#8b5cf6,#a78bfa);
+    color: #0b0814;
+}
+
+    .btn-primary:hover {
+        box-shadow: 0 0 20px var(--rain-glow);
+    }
+
+/* ── Inputs ───────────────────────────────────────────── */
+input, select {
+    background: var(--rain-dark);
+    border: 1px solid var(--rain-slate);
+    color: white;
+    border-radius: var(--radius);
+    padding: 0.5rem;
+}
+
+    input:focus {
+        outline: none;
+        border-color: var(--rain-accent);
+        box-shadow: 0 0 12px var(--rain-glow);
+    }
+
+/* ── Tablas ───────────────────────────────────────────── */
+.table {
+    color: var(--text-main);
+}
+
+    .table thead {
+        color: var(--rain-accent);
+    }
+
+/* ── Alerts ───────────────────────────────────────────── */
+.alert {
+    border-left: 4px solid var(--rain-accent);
+    background: var(--rain-accent-soft);
+}
+
+/* ── Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--rain-slate);
+    border-radius: 10px;
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--rain-dark);
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   🎭 PESTAÑAS ÚNICAS (IMPORTANTE)
+   ============================================================ */
+
+/* HOME */
+.page-home {
+    background: linear-gradient(180deg, #0b0814, #1a1330);
+}
+
+/* DASHBOARD */
+.page-dashboard {
+    background: radial-gradient(circle at top, #1a1330, #0b0814);
+}
+
+    .page-dashboard .card:hover {
+        box-shadow: 0 0 25px rgba(139,92,246,0.4);
+    }
+
+/* FORM */
+.page-form {
+    background: linear-gradient(180deg, #0f0b1a, #140f26);
+}
+
+    .page-form .section {
+        max-width: 600px;
+        margin: auto;
+    }
+
+/* TABLE */
+.page-table {
+    background: linear-gradient(180deg, #0b0814, #120d22);
+}
+
+    .page-table .table {
+        background: rgba(20,15,38,0.7);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+/* ── Glow global por página ───────────────────────────── */
+body[class*="page-"]::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle at 70% 20%, rgba(139,92,246,0.15), transparent 60%);
+}

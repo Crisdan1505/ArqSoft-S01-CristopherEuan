@@ -2,8 +2,37 @@
     ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Bienvenido</h1>
-    <p>Yo soy tu padre :) <a href="Esta pagino fue creada para alimentar tu cultura en videjuegos">Cristopher M. Euan</a>.</p>
-</div>
+<div class="container mt-5">
 
+    <div class="card bg-dark border-info shadow-lg p-5 text-center">
+
+        <h1 class="display-3 text-info fw-bold mb-4">
+            🎮 Bienvenido Gamer
+        </h1>
+
+        <p class="fs-4 text-light mb-3">
+            Explora un universo lleno de videojuegos,
+            géneros épicos y aventuras inolvidables.
+        </p>
+
+        <p class="text-secondary fs-5">
+            Proyecto creado por
+            <span class="text-info fw-bold">
+                Cristopher M. Euan
+            </span>
+        </p>
+
+        <div class="mt-4">
+
+            <a asp-controller="Catalogo"
+                   asp-action="Index"
+                   class="btn btn-primary btn-lg px-5">
+
+                Entrar al Catálogo
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

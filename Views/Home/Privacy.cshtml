@@ -1,6 +1,53 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Política de Privacidad";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>No se que politicas de privacidad hay sjsjsjsj.</p>
+<div class="container mt-5">
+
+    <div class="card bg-dark border-warning shadow-lg p-5">
+
+        <h1 class="text-warning fw-bold mb-4">
+            🔒 @ViewData["Title"]
+        </h1>
+
+        <p class="text-light fs-5">
+            Tu información y experiencia dentro de este catálogo son importantes.
+            Este proyecto fue creado con fines educativos y de entretenimiento,
+            por lo que no se recopilan datos personales sensibles.
+        </p>
+
+        <hr class="border-warning" />
+
+        <h4 class="text-info mt-4">
+            📌 Uso del sitio
+        </h4>
+
+        <p class="text-secondary">
+            El catálogo permite explorar y administrar videojuegos de manera sencilla,
+            manteniendo una experiencia visual moderna y cómoda para el usuario.
+        </p>
+
+        <h4 class="text-info mt-4">
+            🎮 Proyecto académico
+        </h4>
+
+        <p class="text-secondary">
+            Este sitio fue desarrollado por
+            <span class="text-warning fw-bold">
+                Cristopher M. Euan
+            </span>
+            como práctica de desarrollo web con ASP.NET MVC.
+        </p>
+
+        <div class="mt-4">
+            <a asp-controller="Home"
+                   asp-action="Index"
+                   class="btn btn-outline-warning">
+
+                Volver al Inicio
+            </a>
+        </div>
+
+    </div>
+
+</div>

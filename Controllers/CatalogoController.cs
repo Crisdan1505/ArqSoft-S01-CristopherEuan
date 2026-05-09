@@ -35,7 +35,26 @@ namespace Catalogo.Controllers
                 Ano = 2017,
                 Consola = "PlayStation 4",
                 Descripcion = "Videojuego que mezcla acción y filosofía existencial..."
+            },
+             new Item
+            {
+                Id = 4,
+                Titulo = "Gears of War",
+                Genero = "Shooter",
+                Ano = 2006,
+                Consola = "Xbox 360",
+                Descripcion = "Enfrentate a una guerra contra los Locus..."
+            },
+              new Item
+            {
+                Id = 5,
+                Titulo = "Assassin'S Creed",
+                Genero = "RPG",
+                Ano = 2017,
+                Consola = "Xbox, PC",
+                Descripcion = "Eres el ultimo medjay que protege a su pueblo y el inicion de la Hermandad de los Ocultos"
             }
+
         };
 
         // Lista — con filtro opcional por género
